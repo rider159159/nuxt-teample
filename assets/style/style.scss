@@ -1,0 +1,20 @@
+*{
+  font-family: 'Noto Sans TC';
+}
+
+.ProposalContent{
+  img{
+    width:100% !important;
+    max-width: 100%;
+  }
+  figure{
+    width:100% !important;
+    max-width: 100%;
+  }
+  ul {
+    list-style-type: disc;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+}

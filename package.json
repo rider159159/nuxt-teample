@@ -1,0 +1,43 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build --dotenv .env.dev",
+    "dev": "nuxt dev --dotenv .env.dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "overrides": {
+    "vue": "latest"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@types/node": "^20.9.0",
+    "@unocss/nuxt": "^0.57.2",
+    "@unocss/preset-uno": "^0.57.2",
+    "@unocss/reset": "^0.57.2",
+    "@unocss/transformer-directives": "^0.57.2",
+    "@unocss/transformer-variant-group": "^0.57.2",
+    "@vee-validate/i18n": "^4.11.8",
+    "@vee-validate/rules": "^4.11.8",
+    "nuxt": "^3.8.1"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.5.1",
+    "@vuepic/vue-datepicker": "^7.2.2",
+    "d3": "^7.8.5",
+    "dayjs": "^1.11.10",
+    "gsap": "^3.12.2",
+    "js-cookie": "^3.0.5",
+    "nuxt-swiper": "^1.2.2",
+    "pinia": "^2.1.7",
+    "sass": "^1.69.5",
+    "sass-loader": "^13.3.2",
+    "sweetalert2": "^11.9.0",
+    "swiper": "^11.0.3",
+    "topojson-client": "^3.1.0",
+    "unocss": "^0.57.2",
+    "vee-validate": "^4.11.8"
+  }
+}
