@@ -1,12 +1,11 @@
 <script setup>
 const config = useRuntimeConfig()
 
-
-async function getProposalList (queryObj) {
-  const res = await useFetch('/proposal',{
+async function getProposalList(queryObj) {
+  const res = await useFetch('/proposal', {
     query: queryObj,
     baseURL: config.public.BASE_API_URL,
-    method:'GET',
+    method: 'GET',
     onResponse({ response }) {
       response._data = {
         ...response._data.data.list,
@@ -19,20 +18,19 @@ async function getProposalList (queryObj) {
 const hotQuery = {
   order: 3,
   page: 1,
-  pageSize: 3
+  pageSize: 3,
 }
 const recentlyQuery = {
   order: 1,
   page: 1,
-  pageSize: 3
+  pageSize: 3,
 }
 const carouselQuery = {
   page: 1,
-  pageSize: 6
+  pageSize: 6,
 }
 const promise = [getProposalList(hotQuery), getProposalList(recentlyQuery), getProposalList(carouselQuery)]
-const [ { data:recentlyProposalList },{ data:hotProposalList },{ data:carouselProposalList } ] = await Promise.all(promise)
-
+const [{ data: recentlyProposalList }, { data: hotProposalList }, { data: carouselProposalList }] = await Promise.all(promise)
 </script>
 
 <template>
@@ -42,10 +40,5 @@ const [ { data:recentlyProposalList },{ data:hotProposalList },{ data:carouselPr
 </template>
 
 <style scoped lang="scss">
-.test{
-  a {
-    color: #00ff06;
-    padding:20px
-  }
-}
+
 </style>

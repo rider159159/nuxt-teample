@@ -1,5 +1,5 @@
 <script setup>
-const { $gsap, $d3 } = useNuxtApp()
+const { $gsap } = useNuxtApp()
 
 onMounted(() => {
   $gsap.to('#text', {
@@ -8,8 +8,7 @@ onMounted(() => {
     repeat: -1,
     ease: 'none',
   })
-});
-
+})
 </script>
 
 <template>
@@ -19,7 +18,3 @@ onMounted(() => {
     </p>
   </div>
 </template>
-
-<style scoped>
-
-</style>

@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 export const userInfoStore = defineStore(
-  'user-info-store', 
+  'user-info-store',
   () => {
     const SHOW_LOGIN_MODAL = ref(false) // for permission and header use
     const TO_ROUTE = ref('/') // login redirect
@@ -10,10 +10,10 @@ export const userInfoStore = defineStore(
     return {
       SHOW_LOGIN_MODAL,
       TO_ROUTE,
-      USER_INFO_REF
+      USER_INFO_REF,
     }
   },
   {
     persist: true,
-  }
+  },
 )

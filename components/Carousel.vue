@@ -3,7 +3,7 @@ const swiperConfig = {
   modules: [
     SwiperNavigation,
     SwiperEffectCreative,
-    SwiperAutoplay
+    SwiperAutoplay,
   ],
   slidesPerView: 1,
   spaceBetween: 16,
@@ -14,16 +14,16 @@ const swiperConfig = {
   },
   breakpoints: {
     545: {
-      slidesPerView: 2
+      slidesPerView: 2,
     },
     1080: {
-      slidesPerView: 3
+      slidesPerView: 3,
     },
     1280: {
-      slidesPerView: 4
-    }
-  }
-};
+      slidesPerView: 4,
+    },
+  },
+}
 </script>
 
 <template>

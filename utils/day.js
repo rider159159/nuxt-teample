@@ -1,41 +1,39 @@
 // 2023/10/03
-export function dateYYYYMMDD(timestamp){
+export function dateYYYYMMDD(timestamp) {
   const { $dayjs } = useNuxtApp()
   return timestamp ? $dayjs(timestamp).format('YYYY/MM/DD') : '-'
 }
 
-
 // 以下為 Dayjs 轉換格式方法
-export function dateTime(timestamp){
+export function dateTime(timestamp) {
   return timestamp ? $dayjs(timestamp).format('YYYY/MM/DD HH:mm:ss') : '-'
 }
 
-
-export function dateYYYYMM(timestamp){
+export function dateYYYYMM(timestamp) {
   return timestamp ? $dayjs($dayjs.unix(timestamp)).format('YYYY/MM') : '-'
 }
 
-export function dateTimeWithDash(timestamp){
+export function dateTimeWithDash(timestamp) {
   return timestamp ? $dayjs($dayjs.unix(timestamp)).format('YYYY-MM-DD HH:mm:ss') : '-'
 }
 
-export function dateWithDashYYYYMM(timestamp){
+export function dateWithDashYYYYMM(timestamp) {
   return timestamp ? $dayjs($dayjs.unix(timestamp)).format('YYYY-MM') : '-'
 }
 
-export function dateWithDashYYYYMMDD(timestamp){
+export function dateWithDashYYYYMMDD(timestamp) {
   return timestamp ? $dayjs($dayjs.unix(timestamp)).format('YYYY-MM-DD') : '-'
 }
 
-export function dateTimeMMDDYYYY(timestamp){
+export function dateTimeMMDDYYYY(timestamp) {
   return timestamp ? $dayjs($dayjs.unix(timestamp)).format('MM/DD/YYYY HH:mm:ss') : '-'
 }
 
-export function dateMMDDYYYY(timestamp){
+export function dateMMDDYYYY(timestamp) {
   return timestamp ? $dayjs($dayjs.unix(timestamp)).format('MM/DD/YYYY') : '-'
 }
 
-export function timeHHMMSS(timestamp){
+export function timeHHMMSS(timestamp) {
   return timestamp ? $dayjs($dayjs.unix(timestamp)).format('HH:mm:ss') : '-'
 }
 

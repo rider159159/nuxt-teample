@@ -5,12 +5,11 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     const cookie = useCookie('wowcho')
 
     if (cookie.value) {
-
-      const res = await $fetch("/profile",{
+      const res = await $fetch('/profile', {
         baseURL: config.public.BASE_API_URL,
-        method:'GET',
-        headers:{
-          Authorization:`Bearer ${cookie.value}`
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${cookie.value}`,
         },
       })
 
@@ -21,15 +20,17 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
       }
       USER_STORE.USER_INFO_REF = res.data
       return true
-    } else {
+    }
+    else {
       if (to.meta.requiresAuth) {
         LOGIN_STORE.TO_ROUTE = to.fullPath
         LOGIN_STORE.SHOW_LOGIN_MODAL = true
-        if (from.name === undefined) {
+        if (from.name === undefined)
           router.push('/')
-        }
+
         return false
-      } else {
+      }
+      else {
         return true
       }
     }

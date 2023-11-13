@@ -7,6 +7,6 @@ export const searchStore = defineStore('search-store', () => {
   return {
     SEARCH_REF,
     SEARCH_CONTROL,
-    HAVE_SEARCH
+    HAVE_SEARCH,
   }
 })

@@ -6,6 +6,6 @@ export const userLoginStore = defineStore('user-login-store', () => {
 
   return {
     SHOW_LOGIN_MODAL,
-    TO_ROUTE
+    TO_ROUTE,
   }
 })

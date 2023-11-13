@@ -1,7 +1,7 @@
-import { gsap } from "gsap";
-import { ScrollTrigger, ScrollToPlugin } from 'gsap/all'
+import { gsap } from 'gsap'
+import { ScrollToPlugin, ScrollTrigger } from 'gsap/all'
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.provide('gsap', gsap)
