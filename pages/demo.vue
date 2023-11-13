@@ -36,13 +36,18 @@ function setUserInfo () {
 
 <template>
   <section>
-    <div>demo</div>
+    <h3 class="mt-6 text-2xl font-bold">日期套件</h3>
     <VueDatePicker v-model="formBody.time" locale="zh-TW"></VueDatePicker>
+    <h3 class="mt-6 text-2xl font-bold">GSAP 動畫效果</h3>
     <GSAP></GSAP>
+    <h3 class="mt-6 text-2xl font-bold">D3JS 圖表套件</h3>
     <ClientOnly>
       <Map></Map>
     </ClientOnly>
+    <h3 class="mt-6 text-2xl font-bold">輪播</h3>
+    <Carousel></Carousel>
     <div class="flex flex-col">
+      <h3 class="mt-6 text-2xl font-bold">彈窗 + Veevalidate 驗證</h3>
       <button type="button" @click="modalStatus = true" class="my-4">開啟彈窗</button>
       <button type="button" @click="setUserInfo">獲得會員資料</button>
     </div>

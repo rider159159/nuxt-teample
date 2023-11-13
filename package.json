@@ -35,7 +35,6 @@
     "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
     "sweetalert2": "^11.9.0",
-    "swiper": "^11.0.3",
     "topojson-client": "^3.1.0",
     "unocss": "^0.57.2",
     "vee-validate": "^4.11.8"

@@ -1,11 +1,9 @@
 export default defineNuxtConfig({
   // dayjs-nuxt
   modules: ['nuxt-swiper','@pinia/nuxt','@unocss/nuxt',],
-  swiper: {
-    // prefix: 'Swiper',
-    // styleLang: 'css',
-    modules: ['navigation', 'pagination'], // all modules are imported by default
-  },
+  // swiper: {
+  //   modules: ['navigation', 'pagination', 'effect-creative', ]
+  // },
   devtools: { enabled: true },
   imports: {
     "dirs": ['stores']
@@ -18,12 +16,12 @@ export default defineNuxtConfig({
   app: {
     "head": {
       "viewport": "width=500, initial-scale=1",
-      "title": "WowCho 渦潮募資網站",
+      "title": "Nuxt3 模板",
       "meta": [
-        { "name": "description", "content": "WowCho 渦潮募資網站" },
-        { "property": "og:title", "content": "WowCho 渦潮募資網站" },
-        { "property": "og:url", "content": "https://wowcho.site/" },
-        { "property": "og:description", "content": "WowCho 渦潮募資網站" },
+        { "name": "description", "content": "Nuxt3 模板" },
+        { "property": "og:title", "content": "Nuxt3 模板" },
+        // { "property": "og:url", "content": "https://wowcho.site/" },
+        { "property": "og:description", "content": "Nuxt3 模板" },
       ],
       link: [
         {
