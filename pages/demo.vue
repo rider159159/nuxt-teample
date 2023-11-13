@@ -1,7 +1,15 @@
 <script setup>
 import { scrollToError } from '@/utils/scroll'
 import { checkObjKey } from '@/utils/common'
-const { USER_INFO_REF } = storeToRefs(userInfoStore())
+
+onMounted(()=>{
+  const { USER_INFO_REF } = storeToRefs(userInfoStore())
+  userInfo.value.USER_INFO_REF = USER_INFO_REF
+})
+
+let userInfo = ref({
+  USER_INFO_REF:{}
+})
 
 const formBody = ref({
   time: 0,
@@ -28,9 +36,9 @@ function onInvalidSubmit({ errors }) {
 }
 
 function setUserInfo () {
-  USER_INFO_REF.value.name = 'Ryder'
-  USER_INFO_REF.value.age = 30
-  USER_INFO_REF.value.gender = 'Man'
+  userInfo.value.USER_INFO_REF.name = 'Ryder'
+  userInfo.value.USER_INFO_REF.age = 30
+  userInfo.value.USER_INFO_REF.gender = 'Man'
 }
 </script>
 
@@ -49,23 +57,24 @@ function setUserInfo () {
     <div class="flex flex-col">
       <h3 class="mt-6 text-2xl font-bold">彈窗 + Veevalidate 驗證</h3>
       <button type="button" @click="modalStatus = true" class="my-4">開啟彈窗</button>
+      <h3 class="mt-6 text-2xl font-bold"> Store 以及持久化</h3>
       <button type="button" @click="setUserInfo">獲得會員資料</button>
     </div>
 
     <h2>會員資料</h2>
     <label for="formName">
       <p>姓名</p>
-      <input v-model="USER_INFO_REF.name" id="formName" type="text" class="b">
+      <input v-model="userInfo.USER_INFO_REF.name" id="formName" type="text" class="b">
     </label>
 
     <label for="formAge">
       <p>年齡</p>
-      <input v-model="USER_INFO_REF.age" id="formAge" type="number" class="b">
+      <input v-model="userInfo.USER_INFO_REF.age" id="formAge" type="number" class="b">
     </label>
 
     <label for="formGender">
       <p>性別</p>
-      <input v-model="USER_INFO_REF.gender" id="formGender" type="text" class="b">
+      <input v-model="userInfo.USER_INFO_REF.gender" id="formGender" type="text" class="b">
     </label>
 
     <CommonModal v-model="modalStatus" :title="'VeeValidate 測試'">

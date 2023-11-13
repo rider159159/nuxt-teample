@@ -1,9 +1,6 @@
 export default defineNuxtConfig({
   // dayjs-nuxt
-  modules: ['nuxt-swiper','@pinia/nuxt','@unocss/nuxt',],
-  // swiper: {
-  //   modules: ['navigation', 'pagination', 'effect-creative', ]
-  // },
+  modules: ['nuxt-swiper','@unocss/nuxt','@pinia/nuxt','@pinia-plugin-persistedstate/nuxt'],
   devtools: { enabled: true },
   imports: {
     "dirs": ['stores']
