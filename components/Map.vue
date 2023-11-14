@@ -1,23 +1,21 @@
 <script setup>
 import { feature, mesh } from 'topojson-client'
 
-// import worldData from '../assets/us.json'
 import * as d3 from 'd3'
 import worldData from '../assets/us.json'
 
-const map = ref(null)
-
+const map = ref()
 onMounted(() => {
   const svg = drawChart()
   map.value.appendChild(svg)
 })
 
-// const { $d3 } = useNuxtApp()
+const { $d3 } = useNuxtApp()
 const width = 975
 const height = 610
-const zoom = d3.zoom()
-const svg = d3.create('svg')
-const path = d3.geoPath()
+const zoom = $d3.zoom()
+const svg = $d3.create('svg')
+const path = $d3.geoPath()
 const g = svg.append('g')
 let states
 

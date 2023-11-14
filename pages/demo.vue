@@ -1,14 +1,24 @@
 <script setup>
 import { scrollToError } from '@/utils/scroll'
 import { checkObjKey } from '@/utils/common'
+import { getDogImage } from '@/api/module/dog'
+
+// onMounted(async () => {
+//   await test()
+// })
+const image = ref('')
+async function test() {
+  const { data } = await getDogImage()
+  image.value = data.value.message
+}
+
+const userInfo = ref({
+  USER_INFO_REF: {},
+})
 
 onMounted(() => {
   const { USER_INFO_REF } = storeToRefs(userInfoStore())
   userInfo.value.USER_INFO_REF = USER_INFO_REF
-})
-
-let userInfo = ref({
-  USER_INFO_REF: {},
 })
 
 const formBody = ref({
@@ -29,9 +39,8 @@ const passwordType = ref('password')
 
 // 錯誤方法
 function onInvalidSubmit({ errors }) {
-  if (checkObjKey(errors).length > 0) {
+  if (checkObjKey(errors).length > 0)
     scrollToError('.modalBody')
-  }
 }
 
 function setUserInfo() {
@@ -43,6 +52,13 @@ function setUserInfo() {
 
 <template>
   <section>
+    <h3 class="mt-6 text-2xl font-bold">
+      獲得 API
+    </h3>
+    <button type="button" class="z-100 relative" @click="test">
+      打 API
+    </button>
+    <img :src="image" alt="">
     <h3 class="mt-6 text-2xl font-bold">
       日期套件
     </h3>
