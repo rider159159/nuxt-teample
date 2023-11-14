@@ -1,54 +1,52 @@
 <script setup>
-import { feature,mesh } from 'topojson-client'
-// import worldData from '../assets/us.json'
+import { feature, mesh } from 'topojson-client'
+
+import * as d3 from 'd3'
 import worldData from '../assets/us.json'
 
-import * as d3 from 'd3';
-
+const map = ref()
 onMounted(() => {
-  const svg = drawChart();
-  map.value.appendChild(svg);
-});
+  const svg = drawChart()
+  map.value.appendChild(svg)
+})
 
-// const { $d3 } = useNuxtApp()
-const map = ref(null)
-const width = 975;
-const height = 610;
-const zoom = d3.zoom()
-const svg = d3.create("svg")
-const path = d3.geoPath();
-const g = svg.append("g");
+const { $d3 } = useNuxtApp()
+const width = 975
+const height = 610
+const zoom = $d3.zoom()
+const svg = $d3.create('svg')
+const path = $d3.geoPath()
+const g = svg.append('g')
 let states
 
 function drawChart() {
   zoom.scaleExtent([1, 8])
-    .on("zoom", zoomed)
-  svg.attr("viewBox", [0, 0, width, height])
-    .attr("width", width)
-    .attr("height", height)
-    .attr("style", "max-width: 100%; height: auto;")
-    states = g.append("g")
-    .attr("fill", "#444")
-    .attr("cursor", "pointer")
-    .selectAll("path")
+    .on('zoom', zoomed)
+  svg.attr('viewBox', [0, 0, width, height])
+    .attr('width', width)
+    .attr('height', height)
+    .attr('style', 'max-width: 100%; height: auto;')
+  states = g.append('g')
+    .attr('fill', '#444')
+    .attr('cursor', 'pointer')
+    .selectAll('path')
     .data(feature(worldData, worldData.objects.states).features)
-    .join("path")
-    .attr("d", path)
-    .on("click", clicked);
+    .join('path')
+    .attr('d', path)
+    .on('click', clicked)
 
-  states.append("title")
-    .text(d => d.properties.name);
+  states.append('title')
+    .text(d => d.properties.name)
 
-  g.append("path")
-    .attr("fill", "none")
-    .attr("stroke", "white")
-    .attr("stroke-linejoin", "round")
-    .attr("d", path(mesh(worldData, worldData.objects.states, (a, b) => a !== b)));
+  g.append('path')
+    .attr('fill', 'none')
+    .attr('stroke', 'white')
+    .attr('stroke-linejoin', 'round')
+    .attr('d', path(mesh(worldData, worldData.objects.states, (a, b) => a !== b)))
 
-    svg.call(zoom);
+  svg.call(zoom)
   return svg.node()
 }
-
 
 // function reset() {
 //   states.transition().style("fill", null);
@@ -60,30 +58,29 @@ function drawChart() {
 // }
 
 function clicked(event, d) {
-  const [[x0, y0], [x1, y1]] = path.bounds(d);
-  event.stopPropagation();
-  states.transition().style("fill", null);
-  d3.select(this).transition().style("fill", "red");
+  const [[x0, y0], [x1, y1]] = path.bounds(d)
+  event.stopPropagation()
+  states.transition().style('fill', null)
+  d3.select(this).transition().style('fill', 'red')
   svg.transition().duration(750).call(
     zoom.transform,
     d3.zoomIdentity
       .translate(width / 2, height / 2)
       .scale(Math.min(8, 0.9 / Math.max((x1 - x0) / width, (y1 - y0) / height)))
       .translate(-(x0 + x1) / 2, -(y0 + y1) / 2),
-    d3.pointer(event, svg.node())
-  );
+    d3.pointer(event, svg.node()),
+  )
 }
 
 function zoomed(event) {
-  const {transform} = event;
-  g.attr("transform", transform);
-  g.attr("stroke-width", 1 / transform.k);
+  const { transform } = event
+  g.attr('transform', transform)
+  g.attr('stroke-width', 1 / transform.k)
 }
-
 </script>
 
 <template>
   <section>
-    <div ref="map"></div>
+    <div ref="map" />
   </section>
 </template>

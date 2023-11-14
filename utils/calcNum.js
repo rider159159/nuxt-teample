@@ -19,7 +19,7 @@ export function calcTargetPrice(currentPrice = 0, targetPrice = 0) {
 }
 
 // 計算千分位
-export function numberWithCommas(value=0) {
+export function numberWithCommas(value = 0) {
   const stringValue = typeof value === 'number' ? value.toString() : value
   return stringValue.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 }

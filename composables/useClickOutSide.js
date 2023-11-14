@@ -1,10 +1,10 @@
-import { onMounted, onBeforeUnmount } from 'vue'
+import { onBeforeUnmount, onMounted } from 'vue'
 
 export function useClickOutside(el, handler) {
   const listener = (event) => {
-    if (!el.value || el.value.contains(event.target)) {
+    if (!el.value || el.value.contains(event.target))
       return
-    }
+
     handler(event)
   }
 
